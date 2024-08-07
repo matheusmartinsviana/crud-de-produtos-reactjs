@@ -1,5 +1,19 @@
+:root {
+  --dark: #000;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Opens Sans', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+li {
+  list-style: none;
 }
