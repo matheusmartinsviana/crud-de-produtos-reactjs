@@ -1,10 +1,11 @@
+import ProductsView from '../components/ProductsView';
 import styles from './Styles/Home.module.css'
 
 const Home = (() => {
     return (
-    <main className={styles.HomeContainer}>
-        fas
-    </main>
+        <main className={styles.HomeContainer}>
+            <ProductsView />
+        </main>
     );
 })
 

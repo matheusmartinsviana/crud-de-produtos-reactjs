@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Body from "../layout/Body";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import Forms from "../components/Forms";
 
 const AppRoutes = (() => {
     return (
@@ -10,6 +11,7 @@ const AppRoutes = (() => {
             <Routes>
                 <Route path="/" element={<Body />}>
                     <Route path="/" element={<Home />}/>
+                    <Route path="/add" element={<Forms action="add" />}/>
                 </Route>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/login" element={<Login />}/>
