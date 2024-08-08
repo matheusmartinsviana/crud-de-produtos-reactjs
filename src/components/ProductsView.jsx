@@ -5,7 +5,15 @@ import { Link } from "react-router-dom";
 
 const ProductsView = (() => {
     const [products, setProducts] = useState([])
+    const [search, setSearch] = useState("")
     const [load, setLoad] = useState(false)
+
+    const searchHandler = ((e) => {
+        const lowerCase = e.target.value.toLowerCase()
+        setSearch(lowerCase)
+    })
+
+    const filterData = products.filter((product) => search === "" ? product : product.name.includes(search))
 
     const fetchData = async () => {
         setLoad(true)
@@ -33,15 +41,18 @@ const ProductsView = (() => {
         <div className={styles.ProductsViewContainer}>
             <h1>Produtos</h1>
             <input
+                onChange={searchHandler}
                 type="text"
                 name="searchBar"
                 id="search-bar"
+                placeholder="Pesquise um produto"
             />
-            
+
             {products.length > 0 ? (
                 <div className={styles.cardsContainer}>
-                    {products.map((product) => (
+                    {filterData.map((product) => (
                         <Card
+                            key={product.id}
                             id={product.id}
                             name={product.name}
                             description={product.description}
