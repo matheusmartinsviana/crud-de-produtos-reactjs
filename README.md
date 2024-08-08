@@ -53,13 +53,13 @@ Abra o seu navegador e cole o link:
 
 ## Frameworks e Bibliotecas Utilizadas
 
-- <a src="https://reactrouter.com/en/main">React Router Dom</a>: Usado para possibilitar o sistemas de rotas dentro da minha aplicação e renderização dinâmica de elementos.
-- <a src="https://vitejs.dev/">Vite</a>: Escolhido pela velocidade de build e por ter o sistema de live reloading então sempre tenho a visão ao vivo do meu projeto dentro no navegador.
-- <a src="https://vitejs.dev/">React.js</a>: O react traz mais agilidade para o desenvolvimento front-end e também junto a um desenvolvimento otimizado traz um desempenho superior com a possibilidade de renderização de componentes.
+- <a href="https://reactrouter.com/en/main">React Router Dom</a>: Usado para possibilitar o sistemas de rotas dentro da minha aplicação e renderização dinâmica de elementos.
+- <a href="https://vitejs.dev/">Vite</a>: Escolhido pela velocidade de build e por ter o sistema de live reloading então sempre tenho a visão ao vivo do meu projeto dentro no navegador.
+- <a href="https://vitejs.dev/">React.js</a>: O react traz mais agilidade para o desenvolvimento front-end e também junto a um desenvolvimento otimizado traz um desempenho superior com a possibilidade de renderização de componentes.
 
 ## Linkedin
 
-<a src="https://www.linkedin.com/in/matheusmartinsviana/">
+<a href="https://www.linkedin.com/in/matheusmartinsviana/">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
     Matheus Martins Viana - Desenvolvedor Node.js | React.js
 </a>
