@@ -1,0 +1,48 @@
+.loginContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, #FFFFFF, #ECE9E6);
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 19px 0 19px 0;
+}
+
+.inputGroup input {
+    width: 240px;
+    font-size: 1.1rem;
+    margin: 5px;
+    padding: 18px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.loginContainer input:focus,
+.loginContainer input:active {
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin: 13px;
+}
+
+.buttons button,
+.buttons button a {
+    border-radius: 6px;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
