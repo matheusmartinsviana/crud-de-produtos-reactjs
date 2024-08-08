@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Styles from "./Styles/Forms.module.css"
-const API_URL = 'https://interview.t-alpha.com.br/api/';
+const API_URL = 'https://interview.t-alpha.com.br/api';
 
 const Forms = (({ action }) => {
     const [id, setId] = useState()
@@ -9,39 +9,51 @@ const Forms = (({ action }) => {
     const [price, setPrice] = useState(0)
     const [stock, setStock] = useState(0)
     const [error, setError] = useState("")
+    const [sucess, setSucess] = useState("")
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
 
-            const response = await fetch(`${API_URL}products/${action === 'update' ? `update-product/${id}` : action === "delete" ? `delete-product/${id}` : "create-product"}`, {
-                method: action === 'delete' ? 'DELETE' : action === 'update' ? 'PUT' : 'POST',
+            const response = await fetch(`${API_URL}/products/${action === 'update' ? `update-product/${id}` : action === "delete" ? `delete-product/${id}` : "create-product"}`, {
+                method: action === 'delete' ? 'DELETE' : action === 'update' ? 'PATCH' : 'POST',
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
-                body: action === 'add' || update === "update" ? JSON.stringify({
+                body: action === 'add' || action === "update" ? JSON.stringify({
                     name: name,
                     description: description ? description : null,
                     price: Number(price),
                     stock: Number(stock),
                 }) : null,
             });
-            console.log(requestBody)
-            if (!response.ok) {
-                setError("Ocorreu um erro ao adicionar o produto")
-            }
 
+            setSucess(action === "add" ? "Produto adicionado com sucesso" : action === "update" ? "Produto atualizado com sucesso" : "Produto deletado com sucesso")
         } catch (e) {
-            console.log(e.message)
+            setError("Ocorreu um erro ao adicionar o produto: " + e.message)
         }
     };
 
     return (
         <>
-            {action === "add" ? (
+            {action === "add" || action === "update" ? (
                 <form onSubmit={handleSubmit}>
-                    <h1>Crie um produto</h1>
+                    {action === "add" ? (
+                        <h1>Criar produto</h1>
+                    ) : (
+                        <>
+                            <h1>Atualizar produto</h1>
+                            <input type="number"
+                                name="productId"
+                                placeholder="ID do produto"
+                                id="product-id"
+                                onChange={(e) => { (setId(e.target.value)) }}
+                                required
+                            />
+                        </>
+                    )}
                     <input type="text"
                         name="productName"
                         id="product-name"
@@ -72,15 +84,24 @@ const Forms = (({ action }) => {
                         onChange={(e) => { (setStock(e.target.value)) }}
                         required
                     />
-                    <button type="submit">Criar produto</button>
+                    <button type="submit">{action === "add" ? "Criar Produto" : "Atualizar Produto"}</button>
                 </form>
-            ) : action === "update" ? (
-                <form action="#">update</form>
             ) : (
-                <form action="#">delete</form>
+                <form onSubmit={handleSubmit}>
+                    <h1>Deletar produto</h1>
+                    <input type="number"
+                        name="productId"
+                        placeholder="ID do produto"
+                        id="product-id"
+                        onChange={(e) => { (setId(e.target.value)) }}
+                        required
+                    />
+                    <button type="submit">Deletar produto</button>
+                </form>
             )}
 
             {error && <p>{error}</p>}
+            {sucess && <p>{sucess}</p>}
         </>
     )
 })
