@@ -57,6 +57,11 @@ Abra o seu navegador e cole o link:
 - <a href="https://vitejs.dev/">Vite</a>: Escolhido pela velocidade de build e por ter o sistema de live reloading então sempre tenho a visão ao vivo do meu projeto dentro no navegador.
 - <a href="https://vitejs.dev/">React.js</a>: O react traz mais agilidade para o desenvolvimento front-end e também junto a um desenvolvimento otimizado traz um desempenho superior com a possibilidade de renderização de componentes.
 
+## Sistema de autenticação
+- localStorage: Foi utilizado o localStorage pela questão de facíl aplicabilidade.
+- Melhorias futuras: Uso de sessions com react.js, principalmente por utilizar o <strong>cliente-side-sessions</strong> onde conseguimos ter mais segurança na aplicação.
+- <strong>useNavigation:</strong> Como a versão inicial da aplicação está sendo utilizado o localStorage basta eu verificar se há "token" que foi criado pelo back-end após o login, obviamente não é uma das melhores práticas de segurança mas com essa solução eu posso direcionar e quais páginas estão públicas (não há necessidade de um "token" para acessa-las) ou se estão privadas (sempre direcionando pro login se não houver um "token").
+
 ## Linkedin
 
 <a href="https://www.linkedin.com/in/matheusmartinsviana/">
