@@ -31,6 +31,9 @@ const Forms = (({ action }) => {
             });
 
             setSucess(action === "add" ? "Produto adicionado com sucesso" : action === "update" ? "Produto atualizado com sucesso" : "Produto deletado com sucesso")
+            setTimeout(() =>{
+                window.location.reload()
+            }, 1300)
         } catch (e) {
             setError("Ocorreu um erro ao adicionar o produto: " + e.message)
         }

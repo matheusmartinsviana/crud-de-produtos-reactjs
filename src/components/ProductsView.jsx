@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import styles from "./Styles/ProductsView.module.css"
+import Card from "./Card";
+import { Link } from "react-router-dom";
 
 const ProductsView = (() => {
     const [products, setProducts] = useState([])
+    const [load, setLoad] = useState(false)
 
     const fetchData = async () => {
+        setLoad(true)
         try {
             const response = await fetch('https://interview.t-alpha.com.br/api/products/get-all-products', {
                 method: "GET",
@@ -15,6 +19,7 @@ const ProductsView = (() => {
             })
             const result = await response.json()
             setProducts(result.data.products)
+            setLoad(false)
         } catch (e) {
             console.log(e.message)
         }
@@ -27,21 +32,31 @@ const ProductsView = (() => {
     return (
         <div className={styles.ProductsViewContainer}>
             <h1>Produtos</h1>
-            {products ? (
-                <>
+            <input
+                type="text"
+                name="searchBar"
+                id="search-bar"
+            />
+            
+            {products.length > 0 ? (
+                <div className={styles.cardsContainer}>
                     {products.map((product) => (
-                        <section className={styles.boxInfo} key={product.id}>
-                            <p>{product.id}</p>
-                            <p>{product.name}</p>
-                            <p>{product.description}</p>
-                            <p>{product.price}</p>
-                            <p>{product.stock}</p>
-                        </section>
+                        <Card
+                            id={product.id}
+                            name={product.name}
+                            description={product.description}
+                            price={product.price}
+                            stock={product.stock}
+                        />
                     ))}
+                </div>
+            ) : load ? (
+                <>
+                    {load && <p>Carregando produtos...</p>}
                 </>
             ) : (
                 <>
-                    Ainda não existe produtos adiconados.
+                    <p>Nenhum produto foi adicionado ainda. <Link to="/add">Adicione um produto</Link></p>
                 </>
             )}
         </div>
