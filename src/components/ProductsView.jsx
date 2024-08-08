@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./Styles/ProductsView.module.css"
-import Card from "./Card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductsView = (() => {
     const [products, setProducts] = useState([])
     const [search, setSearch] = useState("")
     const [load, setLoad] = useState(false)
+    const navigate = useNavigate()
 
     const searchHandler = ((e) => {
         const lowerCase = e.target.value.toLowerCase()
@@ -34,11 +34,14 @@ const ProductsView = (() => {
     }
 
     useEffect(() => {
+        if (localStorage.getItem("token")) {
+            navigate("/")
+        }
         fetchData()
     }, [])
 
     return (
-        <div className={styles.ProductsViewContainer}>
+        <div className="container">
             <h1>Produtos</h1>
             <input
                 onChange={searchHandler}
@@ -50,16 +53,27 @@ const ProductsView = (() => {
 
             {products.length > 0 ? (
                 <div className={styles.cardsContainer}>
-                    {filterData.map((product) => (
-                        <Card
-                            key={product.id}
-                            id={product.id}
-                            name={product.name}
-                            description={product.description}
-                            price={product.price}
-                            stock={product.stock}
-                        />
-                    ))}
+                    <table>
+                        <caption>Produtos Registrados</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Quantidade em estoque</th>
+                            </tr>
+                        </thead>
+                        {filterData.map((product) => (
+                            <tr>
+                                <td align="center">{product.id}</td>
+                                <td align="center">{product.name}</td>
+                                <td align="center">{product.description}</td>
+                                <td align="center">R${product.price}</td>
+                                <td align="center">{product.stock}</td>
+                            </tr>
+                        ))}
+                    </table>
                 </div>
             ) : load ? (
                 <>

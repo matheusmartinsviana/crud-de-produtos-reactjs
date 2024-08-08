@@ -6,9 +6,9 @@ import ProductsView from "../components/ProductsView";
 const Body = (() => {
     return (
         <>
-            <div style={{ display: "flex", width: "100%", height: "100vh" }}>
+            <div style={{ display: "flex", width: "100%", minHeight: "100%"}}>
                 <Navbar />
-                <div>
+                <div style={{ padding: "40px", height: "100vh"}}>
                     <ProductsView />
                     <Outlet />
                 </div>

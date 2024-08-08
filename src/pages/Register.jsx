@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import styles from "./Styles/Register.module.css"
 import { validateCpnjCpf, validateEmail, validatePhone } from "../utils/regex"
@@ -36,6 +36,12 @@ const Register = (() => {
         }
     }
 
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            navigate("/")
+        }
+    })
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError('');
@@ -66,7 +72,7 @@ const Register = (() => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.registerContainer}>
             <h1>Crie sua conta</h1>
             <div className={styles.inputGroup}>
                 <input
@@ -122,10 +128,12 @@ const Register = (() => {
                     placeholder="Digite sua senha"
                     required
                 />
+            </div>
+
+            <div className={styles.buttons}>
                 <button onClick={validate} type="submit">Criar conta</button>
                 <button><Link to="/login">Entrar</Link></button>
             </div>
-
             {error && <p>{error}</p>}
         </form>
     )

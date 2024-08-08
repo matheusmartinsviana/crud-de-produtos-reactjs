@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Styles from "./Styles/Forms.module.css"
+import styles from "./Styles/Forms.module.css"
 const API_URL = 'https://interview.t-alpha.com.br/api';
 
 const Forms = (({ action }) => {
@@ -42,7 +42,7 @@ const Forms = (({ action }) => {
     return (
         <>
             {action === "add" || action === "update" ? (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={styles.formContainer}>
                     {action === "add" ? (
                         <h1>Criar produto</h1>
                     ) : (
@@ -90,7 +90,7 @@ const Forms = (({ action }) => {
                     <button type="submit">{action === "add" ? "Criar Produto" : "Atualizar Produto"}</button>
                 </form>
             ) : (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={styles.formContainer}>
                     <h1>Deletar produto</h1>
                     <input type="number"
                         name="productId"
