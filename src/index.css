@@ -17,3 +17,30 @@ a {
 li {
   list-style: none;
 }
+
+/* set default styles */
+
+input, textarea {
+  width: 240px;
+  margin: 10px 0 10px 0;
+  font-size: 1.1rem;
+  padding: 18px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input:focus,
+input:active {
+  outline: none;
+}
+
+button {
+  border-radius: 6px;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

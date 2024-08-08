@@ -1,0 +1,16 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.formContainer input,
+.formContainer textarea {
+    width: 290px;
+    outline: none;
+}
+
+.formContainer textarea {
+    height: 110px;
+}
