@@ -59,8 +59,8 @@ Abra o seu navegador e cole o link:
 
 ## Sistema de autenticação
 - localStorage: Foi utilizado o localStorage pela questão de facíl aplicabilidade.
-- Melhorias futuras: Uso de sessions com react.js, principalmente por utilizar o <strong>cliente-side-sessions</strong> onde conseguimos ter mais segurança na aplicação.
 - <strong>useNavigation:</strong> Como a versão inicial da aplicação está sendo utilizado o localStorage basta eu verificar se há "token" que foi criado pelo back-end após o login, obviamente não é uma das melhores práticas de segurança mas com essa solução eu posso direcionar e quais páginas estão públicas (não há necessidade de um "token" para acessa-las) ou se estão privadas (sempre direcionando pro login se não houver um "token").
+- Melhorias futuras: Uso de sessions com react.js, principalmente por utilizar o <strong>cliente-side-sessions</strong> onde conseguimos ter mais segurança na aplicação.
 
 ## Linkedin
 
