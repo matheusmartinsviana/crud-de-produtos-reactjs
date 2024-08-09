@@ -9,7 +9,7 @@ const Login = (() => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(localStorage.getItem("token")){
+        if (localStorage.getItem("token")) {
             navigate("/")
         }
     })
@@ -30,14 +30,14 @@ const Login = (() => {
                 })
             })
 
-            if (!response.ok) {
-                setError(response.json())
-            }
-
             const result = await response.json();
-
-            localStorage.setItem('token', result.data.token);
-            navigate('/')
+            if (result.message) {
+                setError(`Ocorreu um erro: ${result.message}`)
+            } else if (result.data.token) {
+                localStorage.setItem('token', result.data.token);
+                navigate('/')
+            }
+            
         } catch (e) {
             console.log(e.message)
         }

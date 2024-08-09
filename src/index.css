@@ -50,7 +50,8 @@ button {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-button:hover, a:hover {
+button:hover,
+a:hover {
   background-color: #000000e1;
 }
 
@@ -63,7 +64,8 @@ button:disabled {
     padding: 10px;
   }
 
-  input, textarea {
+  input,
+  textarea {
     padding: 14px;
     width: 220px;
     font-size: 1rem;
