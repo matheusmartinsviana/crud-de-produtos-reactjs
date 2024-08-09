@@ -67,7 +67,7 @@ const ProductsView = (() => {
                             </tr>
                         </thead>
                         <tbody>
-                            {filterData.map((product) => (
+                            {filterData.length > 0 ? (filterData.map((product) => (
                                 <tr key={product.id}>
                                     <td align="center">{product.id}</td>
                                     <td align="center">{product.name}</td>
@@ -75,7 +75,12 @@ const ProductsView = (() => {
                                     <td align="center">R${product.price}</td>
                                     <td align="center">{product.stock}</td>
                                 </tr>
-                            ))}
+                            ))) : (
+                                <tr>
+                                    <td align="center">Nenhum produto encontrado</td>
+                                </tr>
+                            )
+                            }
                         </tbody>
                     </table>
                 </div>
