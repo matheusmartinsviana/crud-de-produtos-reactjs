@@ -1,0 +1,18 @@
+.bodyContent {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+}
+
+.outletContainer {
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.LogoutButton {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: flex-start;
+    padding: 40px;
+}
