@@ -50,7 +50,7 @@ tr:last-child td {
 
 @media (max-width: 768px) {
     table {
-        width: 70vw;
+        width: 60vw;
         font-size: 12px;
     }
 

@@ -11,9 +11,19 @@
 }
 
 .LogoutButton {
-    display: flex;
-    width: 100%;
-    justify-content: end;
-    align-items: flex-start;
+    top: 0;
+    right: 0;
     padding: 40px;
+    position: absolute;
+}
+
+@media (max-width: 768px) {
+    .outletContainer {
+        margin-top: 30px;
+        padding: 30px;
+    }
+
+    .LogoutButton {
+        padding: 30px 10px 0 0;
+    }
 }
