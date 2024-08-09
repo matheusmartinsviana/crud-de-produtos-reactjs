@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Styles/Forms.module.css"
+import { useNavigate } from "react-router-dom";
 const API_URL = 'https://interview.t-alpha.com.br/api';
 
 const Forms = (({ action }) => {
@@ -10,6 +11,7 @@ const Forms = (({ action }) => {
     const [stock, setStock] = useState(0)
     const [error, setError] = useState("")
     const [sucess, setSucess] = useState("")
+    const navigate = useNavigate("")
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,6 +34,7 @@ const Forms = (({ action }) => {
 
             setSucess(action === "add" ? "Produto adicionado com sucesso" : action === "update" ? "Produto atualizado com sucesso" : "Produto deletado com sucesso")
             setTimeout(() => {
+                navigate("/")
                 window.location.reload()
             }, 1300)
         } catch (e) {
