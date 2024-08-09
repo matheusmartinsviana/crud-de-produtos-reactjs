@@ -1,33 +1,46 @@
 .navbarContainer {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    flex-direction: column;
     width: 200px;
+    padding-top: 80px;
     background-color: var(--dark);
     transition: all ease-in-out .2s;
 }
 
+.navbarContainer h1 {
+    color: white;
+    text-align: center;
+}
+
 .navbarContainer ul li {
-    padding: 30px 0 30px 0;
+    padding: 15px 10px 15px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     text-align: center;
-    min-height: 650px;
+    height: 100px;
 }
 
 .navbarContainer ul li a {
+    transition: all ease-in-out .2s;
     color: white;
+}
+
+.navbarContainer ul li a:hover {
+    color: rgba(255, 255, 255, 0.664);
 }
 
 @media (max-width: 768px) {
     .navbarContainer ul li {
-        min-height: 460px;
+        min-height: 125px;
     }
+
     .navbarContainer {
         width: 120px;
         font-size: 14px;
-        padding: 1%;
+        padding: 40px 10px 0 10px;
     }
 }
