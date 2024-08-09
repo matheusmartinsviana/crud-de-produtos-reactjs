@@ -20,27 +20,40 @@ li {
 
 /* set default styles */
 
-input, textarea {
+input,
+textarea {
   width: 240px;
   margin: 10px 0 10px 0;
   font-size: 1.1rem;
   padding: 18px;
-  border: none;
+  border: solid 1px transparent;
+  transition: all ease-in-out .3s;
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 input:focus,
 input:active {
+  border: solid 1px #00000033;
   outline: none;
 }
 
 button {
+  cursor: pointer;
   border-radius: 6px;
   border: none;
   padding: 14px;
   font-size: 1rem;
+  transition: all ease-in-out .3s;
   background-color: black;
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #000000e1;
+}
+
+button:disabled {
+  background-color: #000000cb;
 }

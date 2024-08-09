@@ -36,6 +36,8 @@ const ProductsView = (() => {
     useEffect(() => {
         if (localStorage.getItem("token")) {
             navigate("/")
+        } else {
+            navigate("/login")
         }
         fetchData()
     }, [])
