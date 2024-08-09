@@ -1,16 +1,26 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import styles from "./Styles/Body.module.css"
 import ProductsView from "../components/ProductsView";
 
 const Body = (() => {
+    const navigate = useNavigate()
+
+    const handleLogout = (() => {
+        localStorage.removeItem("token")
+        navigate("/login")
+    })
     return (
         <>
-            <div style={{ display: "flex", width: "100%", minHeight: "100%" }}>
+            <div className={styles.bodyContent}>
                 <Navbar />
-                <div style={{ padding: "40px", minHeight: "100vh"}}>
+                <div className={styles.outletContainer}>
                     <ProductsView />
                     <Outlet />
+                </div>
+                <div className={styles.LogoutButton}>
+                    <button onClick={handleLogout}>Logout</button>
                 </div>
             </div>
             <Footer />

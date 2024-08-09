@@ -2,7 +2,7 @@
     display: flex;
     justify-content: start;
     flex-direction: column;
-    width: 200px;
+    min-width: 200px;
     padding-top: 80px;
     background-color: var(--dark);
     transition: all ease-in-out .2s;
@@ -43,7 +43,7 @@
     }
 
     .navbarContainer {
-        width: 110px;
+        min-width: 110px;
         font-size: 14px;
         padding: 40px 10px 0 10px;
     }
