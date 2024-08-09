@@ -31,9 +31,9 @@ const Login = (() => {
             })
 
             const result = await response.json();
-            if (result.message && !response.ok) {
+            if (!response.ok) {
                 setError(`Ocorreu um erro: ${result.message}`)
-            } else if (result.data.token) {
+            } else {
                 localStorage.setItem('token', result.data.token);
                 navigate('/')
             }
