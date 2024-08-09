@@ -1,7 +1,31 @@
 # T-Alpha Interview
 This repositoty contains a authentication system and a CRUD of products
 
-###
+# Telas criadas
+<figure>
+    <img src="/images/login.png" width="600" height="600">
+    <figcaption>Tela de login</figcaption>
+</figure>
+<figure>
+    <img src="/images/register.png" width="600" height="600">
+    <figcaption>Tela de registro</figcaption>
+</figure>
+<figure>
+    <img src="/images/initial.png" width="600" height="600">
+    <figcaption>Tela inital mostrando todos os produtos se exister com barra de pesquisa</figcaption>
+</figure>
+<figure>
+    <img src="/images/create.png" width="600" height="600">
+    <figcaption>Formulário para criar produtos</figcaption>
+</figure>
+<figure>
+    <img src="/images/update.png" width="600" height="600">
+    <figcaption>Formulário para atualizar produtos</figcaption>
+</figure>
+<figure>
+    <img src="/images/delete.png" width="600" height="600">
+    <figcaption>Formulários para deletar produto</figcaption>
+</figure>
 
 ## Como rodar o projeto
 
