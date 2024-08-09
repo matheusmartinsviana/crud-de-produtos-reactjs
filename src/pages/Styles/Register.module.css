@@ -55,3 +55,9 @@
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.errorMessage {
+    text-align: center;
+    color: red;
+    font-size: 15px;
+}

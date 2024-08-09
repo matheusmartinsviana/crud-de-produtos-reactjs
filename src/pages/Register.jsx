@@ -36,12 +36,6 @@ const Register = (() => {
         }
     }
 
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            navigate("/")
-        }
-    })
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError('');
@@ -61,13 +55,15 @@ const Register = (() => {
                 })
             })
 
-            if (!response.ok) {
-                setError("Ocorreu um erro. Verifique suas credenciais");
-            }
+            const result = await response.json()
 
-            navigate("/login")
+            if (!response.ok) {
+                setError(`Falha ao registrar o usúario: ${result.message}`)
+            } else if (response.ok) {
+                navigate("/login")
+            }
         } catch (e) {
-            setError("Falha ao registrar o usúario. Tente novamente em alguns instantes");
+            console.log(e.message)
         }
     }
 
@@ -96,7 +92,7 @@ const Register = (() => {
                     minLength={11}
                     required
                 />
-                {taxNumberError && <p>Este campo deve conter apenas números e ter 11 ou mais dígitos. Tente novamente</p>}
+                {taxNumberError && <p className={styles.errorMessage}>O campo de CPF e CNPJ deve conter apenas números e ter 11 ou mais dígitos. Ex: 012.345.678-91</p>}
                 <input
                     name="email"
                     type="email"
@@ -106,19 +102,21 @@ const Register = (() => {
                     placeholder="exemplo@dominio.com"
                     required
                 />
-                {emailError && <p>Digite um endereço de email valido.</p>}
+                {emailError && <p className={styles.errorMessage}>Digite um endereço de email valido. Ex: email@dominio.com</p>}
                 <input
                     name="phone"
                     autoComplete="off"
                     type="tel"
-                    maxLength={14}
-                    minLength={11}
+                    maxLength={11}
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                        setPhone(e.target.value)
+                        setPhoneError("")
+                    }}
                     placeholder="Digite seu telefone"
                     required
                 />
-                {phoneError && <p>Este campo deve conter apenas números e 11 ou mais dígitos. Tente novamente</p>}
+                {phoneError && <p className={styles.errorMessage}>O número de telefone deve conter apenas números e conter 11 ou mais dígitos. Ex: 99 99999-9999</p>}
                 <input
                     name="password"
                     type="password"
@@ -131,10 +129,10 @@ const Register = (() => {
             </div>
 
             <div className={styles.buttons}>
-                <button onClick={validate} type="submit">Criar conta</button>
+                <button type="submit">Criar conta</button>
                 <button><Link to="/login">Entrar</Link></button>
             </div>
-            {error && <p>{error}</p>}
+            {error && <p className={styles.errorMessage}>{error}</p>}
         </form>
     )
 })

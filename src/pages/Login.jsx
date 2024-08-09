@@ -37,7 +37,7 @@ const Login = (() => {
                 localStorage.setItem('token', result.data.token);
                 navigate('/')
             }
-            
+
         } catch (e) {
             console.log(e.message)
         }
@@ -72,7 +72,7 @@ const Login = (() => {
                 <button><Link to="/register">Criar conta</Link></button>
             </div>
 
-            {error && <p>{error}</p>}
+            {error && <p className={styles.errorMessage}>{error}</p>}
         </form>
     )
 })
