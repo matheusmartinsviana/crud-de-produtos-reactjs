@@ -39,12 +39,16 @@
 
 @media (max-width: 768px) {
     .navbarContainer ul li {
-        min-height: 125px;
+        min-height: 135px;
     }
 
     .navbarContainer {
-        width: 120px;
+        width: 110px;
         font-size: 14px;
         padding: 40px 10px 0 10px;
+    }
+
+    .navbarContainer h1 {
+        font-size: 1rem;
     }
 }

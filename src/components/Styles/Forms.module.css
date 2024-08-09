@@ -14,3 +14,18 @@
 .formContainer textarea {
     height: 110px;
 }
+
+.errorMessage {
+    color: red;
+}
+
+.sucessMessage {
+    color: green;
+}
+
+@media (max-width: 768px) {
+    .formContainer input, .formContainer textarea {
+        width: 220px;
+        font-size: 1rem;
+    }
+}

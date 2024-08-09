@@ -66,15 +66,17 @@ const ProductsView = (() => {
                                 <th scope="col">Quantidade em estoque</th>
                             </tr>
                         </thead>
-                        {filterData.map((product) => (
-                            <tr>
-                                <td align="center">{product.id}</td>
-                                <td align="center">{product.name}</td>
-                                <td align="center">{product.description}</td>
-                                <td align="center">R${product.price}</td>
-                                <td align="center">{product.stock}</td>
-                            </tr>
-                        ))}
+                        <tbody>
+                            {filterData.map((product) => (
+                                <tr key={product.id}>
+                                    <td align="center">{product.id}</td>
+                                    <td align="center">{product.name}</td>
+                                    <td align="center">{product.description}</td>
+                                    <td align="center">R${product.price}</td>
+                                    <td align="center">{product.stock}</td>
+                                </tr>
+                            ))}
+                        </tbody>
                     </table>
                 </div>
             ) : load ? (

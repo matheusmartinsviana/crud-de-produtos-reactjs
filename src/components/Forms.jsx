@@ -31,11 +31,11 @@ const Forms = (({ action }) => {
             });
 
             setSucess(action === "add" ? "Produto adicionado com sucesso" : action === "update" ? "Produto atualizado com sucesso" : "Produto deletado com sucesso")
-            setTimeout(() =>{
+            setTimeout(() => {
                 window.location.reload()
             }, 1300)
         } catch (e) {
-            setError("Ocorreu um erro ao adicionar o produto: " + e.message)
+            setError(`Ocorreu um erro ao adicionar o produto: ${e.message}`)
         }
     };
 
@@ -103,8 +103,8 @@ const Forms = (({ action }) => {
                 </form>
             )}
 
-            {error && <p>{error}</p>}
-            {sucess && <p>{sucess}</p>}
+            {error && <p className={styles.errorMessage}>{error}</p>}
+            {sucess && <p className={styles.sucessMessage}>{sucess}</p>}
         </>
     )
 })
