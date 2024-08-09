@@ -36,11 +36,21 @@ input:active {
 }
 
 button {
+  cursor: pointer;
   border-radius: 6px;
   border: none;
   padding: 14px;
   font-size: 1rem;
+  transition: all ease-in-out .3s;
   background-color: black;
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #000000e1;
+}
+
+button:disabled {
+  background-color: #000000cb;
 }
