@@ -46,3 +46,13 @@
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.buttons button a {
+    border-radius: 6px;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -50,6 +50,12 @@ tr:last-child td {
 
 @media (max-width: 768px) {
     table {
-        width: 60vw;
+        width: 70vw;
+        font-size: 12px;
+    }
+
+    caption {
+        text-align: left;
+        font-size: 15px;
     }
 }
