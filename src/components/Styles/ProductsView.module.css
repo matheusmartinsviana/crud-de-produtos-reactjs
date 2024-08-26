@@ -18,7 +18,8 @@ caption {
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(to top, #dddddd, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to top, #dddddd, #ffffff);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 tbody {
@@ -46,6 +47,23 @@ td:last-child {
 
 tr:last-child td {
     border-bottom-width: 0;
+}
+
+.actions button:nth-child(1) {
+    background-color: rgb(255, 35, 35);
+    padding: 10px;
+}
+
+.actions button:nth-child(1):hover {
+    background-color: rgba(255, 0, 0, 0.658);
+}
+
+.actions a {
+    color: #fff;
+}
+
+.actions a:hover {
+    background-color: transparent;
 }
 
 @media (max-width: 768px) {
