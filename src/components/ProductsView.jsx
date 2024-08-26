@@ -15,6 +15,27 @@ const ProductsView = (() => {
 
     const filterData = products.filter((product) => search === "" ? product : product.name.includes(search))
 
+    const deleteProduct = async ({ ...product }) => {
+        setLoad(true)
+        try {
+            const response = await fetch(`https://interview.t-alpha.com.br/api/products/delete-product/${product.id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+
+            if (response.status === 204) {
+                fetchData()
+            }
+
+            setLoad(false)
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
     const fetchData = async () => {
         setLoad(true)
         try {
@@ -34,11 +55,6 @@ const ProductsView = (() => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            navigate("/")
-        } else {
-            navigate("/login")
-        }
         fetchData()
     }, [])
 
@@ -64,6 +80,7 @@ const ProductsView = (() => {
                                 <th scope="col">Descrição</th>
                                 <th scope="col">Preço</th>
                                 <th scope="col">Quantidade em estoque</th>
+                                <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +91,12 @@ const ProductsView = (() => {
                                     <td align="center">{product.description}</td>
                                     <td align="center">R${product.price}</td>
                                     <td align="center">{product.stock}</td>
+                                    <td align="center">
+                                        <div className={styles.actions}>
+                                            {/* <button><Link to="/update">Atualizar</Link></button> */}
+                                            <button onClick={(e) => { deleteProduct(product) }}>Deletar</button>
+                                        </div>
+                                    </td>
                                 </tr>
                             ))) : (
                                 <tr>
