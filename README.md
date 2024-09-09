@@ -13,7 +13,7 @@ Clone o repositório:
 
 Abra a pasta do projeto no terminal: 
 ```bash
-    cd t-alpha-interview
+    cd crud-de-produtos-reactjs
 ```
 
 Faça a instalação dos pacotes e dependências:
